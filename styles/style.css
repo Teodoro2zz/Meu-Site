@@ -1,6 +1,6 @@
 body {
     font-family: 'Segoe UI', Arial, sans-serif;
-    background: #fff0f6;
+    background: #ffe6f2;
     margin: 0;
     padding: 0;
 }
@@ -11,14 +11,15 @@ header {
     margin-top: 24px;
 }
 
+h1, h2 {
+    font-family: 'Pacifico', cursive, Arial, sans-serif;
+    margin-bottom: 10px;
+}
+
 main {
     padding: 20px;
     max-width: 500px;
     margin: 0 auto;
-}
-
-h1, h2 {
-    margin-bottom: 10px;
 }
 
 section {
@@ -29,12 +30,25 @@ section {
     padding: 16px;
 }
 
+.galeria {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 10px;
+}
+.galeria img {
+    width: 120px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px #e6007333;
+}
+
 #overlay-botao {
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
     width: 100vw;
     height: 100vh;
-    background: #fff0f6;
+    background: #ffe6f2;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -54,6 +68,13 @@ section {
     color: #e60073;
     font-weight: bold;
     transition: transform 0.2s;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 #e6007340; }
+    70% { box-shadow: 0 0 0 15px #e6007300; }
+    100% { box-shadow: 0 0 0 0 #e6007300; }
 }
 
 #play-music-btn:hover {
@@ -97,12 +118,23 @@ section {
     }
 }
 
+footer {
+    text-align: center;
+    color: #e60073;
+    margin-bottom: 16px;
+    font-size: 1.1rem;
+    font-family: 'Pacifico', cursive, Arial, sans-serif;
+}
+
 @media (max-width: 600px) {
     main {
         padding: 10px;
     }
     section {
         padding: 10px;
+    }
+    .galeria img {
+        width: 80px;
     }
     #play-music-btn img {
         width: 80px;
