@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Para Meu Amor 💗</title>
     <link rel="stylesheet" href="styles/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="overlay-botao">
@@ -15,7 +14,7 @@
             <span>Clique aqui Amor💗</span>
         </button>
     </div>
-    <audio id="background-music" src="assets/music/vemca.mp3" loop></audio>
+    <audio id="background-music" src="assets/music/Vem Cá.mp3" loop></audio>
     <div id="conteudo-site" style="display:none;">
         <header>
             <h1>Para Meu Amor 💗</h1>
@@ -23,21 +22,22 @@
         <main>
             <section>
                 <h2>Nossos Momentos</h2>
-                <div class="galeria">
-                    <img src="assets/fotos/foto.png" alt="Foto especial">
-                    <!-- Adicione mais fotos se quiser -->
-                    <!-- <img src="assets/fotos/foto2.png" alt="Outro momento"> -->
-                </div>
+                <img src="assets/fotos/Foto.png" alt="Foto especial" style="max-width:100%;border-radius:16px;">
             </section>
             <section>
                 <h2>Mensagem</h2>
                 <p>Oi meu amor! Esse site é só pra você, com todo meu carinho. Te amo! 💖</p>
             </section>
         </main>
-        <footer>
-            <p>Desde 01/01/2023 💖</p>
-        </footer>
     </div>
-    <script src="scripts/main.js"></script>
+    <script>
+        // Garante que a música só toca após interação do usuário
+        document.getElementById('play-music-btn').addEventListener('click', function() {
+            var audio = document.getElementById('background-music');
+            audio.play();
+            document.getElementById('overlay-botao').style.display = 'none';
+            document.getElementById('conteudo-site').style.display = 'block';
+        });
+    </script>
 </body>
 </html>
