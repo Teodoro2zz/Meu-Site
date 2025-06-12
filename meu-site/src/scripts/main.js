@@ -1,11 +1,10 @@
-// Overlay inicial: ao clicar no botão, mostra suspense e toca música
+// Funções que podem rodar fora do DOMContentLoaded (se o script está no final do body)
 document.getElementById('play-music-btn').addEventListener('click', function() {
     document.getElementById('overlay-botao').style.display = 'none';
     document.getElementById('overlay-suspense').style.display = 'flex';
     document.getElementById('background-music').play();
 });
 
-// Botão "Sim, quero!" mostra o conteúdo principal
 document.getElementById('confirmar-btn').addEventListener('click', function() {
     document.getElementById('overlay-suspense').style.display = 'none';
     document.getElementById('conteudo-site').style.display = 'block';
@@ -14,19 +13,15 @@ document.getElementById('confirmar-btn').addEventListener('click', function() {
 // Botão "Não" foge do mouse
 const naoBtn = document.getElementById('nao-btn');
 const botoesSuspense = document.querySelector('.botoes-suspense');
-
 naoBtn.addEventListener('mouseenter', function() {
     const box = botoesSuspense.getBoundingClientRect();
     const btn = naoBtn.getBoundingClientRect();
     let newLeft = Math.random() * (box.width - btn.width);
-    let newTop = Math.random() * 30; // Pequeno deslocamento vertical
-
+    let newTop = Math.random() * 30;
     naoBtn.style.position = 'relative';
     naoBtn.style.left = newLeft + 'px';
     naoBtn.style.top = newTop + 'px';
 });
-
-// Volta ao lugar quando o mouse sai da área dos botões
 botoesSuspense.addEventListener('mouseleave', function() {
     naoBtn.style.left = '0px';
     naoBtn.style.top = '0px';
@@ -34,8 +29,7 @@ botoesSuspense.addEventListener('mouseleave', function() {
 
 // Contador de dias juntos
 function atualizarContadorDias() {
-    // Data do início do namoro (ano, mês-1, dia)
-    const inicio = new Date(2024, 8, 4); // 4 de setembro de 2024 (mês começa do zero)
+    const inicio = new Date(2024, 8, 4);
     const hoje = new Date();
     inicio.setHours(0,0,0,0);
     hoje.setHours(0,0,0,0);
@@ -49,7 +43,7 @@ atualizarContadorDias();
 // Lightbox para galeria de fotos
 document.querySelectorAll('.foto-link').forEach(link => {
     link.addEventListener('click', function(e) {
-        e.preventDefault(); // Impede sair do site!
+        e.preventDefault();
         document.getElementById('img-lightbox').src = this.href;
         document.getElementById('lightbox').style.display = 'flex';
     });
@@ -61,6 +55,7 @@ document.getElementById('lightbox').onclick = function(e) {
     if (e.target === this) this.style.display = 'none';
 };
 
+// Envelopes animados
 document.addEventListener('DOMContentLoaded', function() {
     const envelopes = document.querySelectorAll('.envelope-bilhete');
     const abrirBtns = document.querySelectorAll('.abrir-proximo-btn');
