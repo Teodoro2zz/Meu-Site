@@ -148,25 +148,25 @@
         </div>
     </div>
     <script>
-        // Música só toca após interação do usuário e animação dos corações/data
         document.getElementById('play-music-btn').addEventListener('click', function() {
-            var audio = document.getElementById('background-music');
-            audio.play();
-            document.getElementById('overlay-botao').style.display = 'none';
-            document.getElementById('conteudo-site').style.display = 'block';
+    var audio = document.getElementById('background-music');
+    audio.play();
+    document.getElementById('overlay-botao').style.display = 'none';
+    document.getElementById('conteudo-site').style.display = 'block';
 
-            // Cria animação dos corações e data
-            const animacao = document.createElement('div');
-            animacao.className = 'animacao-namoro';
-            animacao.innerHTML = `
-                <span class="coracoes">💗💗💗</span>
-                <span class="data">Desde: 04/09/2024</span>
-            `;
-            document.body.appendChild(animacao);
-            setTimeout(() => {
-                animacao.remove();
-            }, 2500);
-        });
+    // Cria animação dos corações e data
+    const animacao = document.createElement('div');
+    animacao.className = 'animacao-namoro';
+    animacao.innerHTML = `
+        <span class="coracoes">💗💗💗</span>
+        <span class="data">Desde: 04/09/2024</span>
+    `;
+    document.body.appendChild(animacao);
+    setTimeout(() => {
+        animacao.remove();
+    }, 2500);
+});
+        
 
         // Carrossel automático
         const fotos = [
