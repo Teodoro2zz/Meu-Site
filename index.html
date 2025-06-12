@@ -16,35 +16,17 @@
             text-align: center;
             margin-top: 32px;
         }
-        .carrossel {
+        .fotos {
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 24px;
             margin: 32px 0;
         }
-        .carrossel-img {
-            max-width: 90vw;
-            max-height: 320px;
+        .fotos img {
+            max-width: 300px;
             border-radius: 16px;
             box-shadow: 0 2px 8px #0002;
-            margin-bottom: 12px;
-        }
-        .carrossel-botoes {
-            margin-top: 10px;
-        }
-        .carrossel-botoes button {
-            background: #fff;
-            border: 1px solid #ccc;
-            border-radius: 50%;
-            width: 36px;
-            height: 36px;
-            font-size: 20px;
-            margin: 0 10px;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-        .carrossel-botoes button:hover {
-            background: #ffe0ef;
         }
         .mensagem {
             text-align: center;
@@ -94,12 +76,11 @@
         <main>
             <section>
                 <h2 style="text-align:center;">Nossos Momentos</h2>
-                <div class="carrossel">
-                    <img id="carrossel-img" class="carrossel-img" src="assets/fotos/foto1.png" alt="Foto especial">
-                    <div class="carrossel-botoes">
-                        <button id="anterior" title="Anterior">&lt;</button>
-                        <button id="proximo" title="Próxima">&gt;</button>
-                    </div>
+                <div class="fotos">
+                    <img src="assets/fotos/foto1.png" alt="Foto 1">
+                    <img src="assets/fotos/foto2.png" alt="Foto 2">
+                    <img src="assets/fotos/foto3.png" alt="Foto 3">
+                    <img src="assets/fotos/foto4.png" alt="Foto 4">
                 </div>
             </section>
             <section>
@@ -111,31 +92,12 @@
         </main>
     </div>
     <script>
-        // Música só toca após interação do usuário
         document.getElementById('play-music-btn').addEventListener('click', function() {
             var audio = document.getElementById('background-music');
             audio.play();
             document.getElementById('overlay-botao').style.display = 'none';
             document.getElementById('conteudo-site').style.display = 'block';
         });
-
-        // Carrossel de fotos
-        const fotos = [
-            "assets/fotos/foto1.png",
-            "assets/fotos/foto2.png",
-            "assets/fotos/foto3.png",
-            "assets/fotos/foto4.png"
-        ];
-        let indice = 0;
-        const img = document.getElementById('carrossel-img');
-        document.getElementById('anterior').onclick = function() {
-            indice = (indice - 1 + fotos.length) % fotos.length;
-            img.src = fotos[indice];
-        };
-        document.getElementById('proximo').onclick = function() {
-            indice = (indice + 1) % fotos.length;
-            img.src = fotos[indice];
-        };
     </script>
 </body>
 </html>
