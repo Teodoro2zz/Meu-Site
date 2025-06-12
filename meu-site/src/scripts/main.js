@@ -97,3 +97,33 @@ document.addEventListener('DOMContentLoaded', function() {
         reabrirBtn.style.display = 'none';
     });
 });
+
+function soltarCoracoesConfete(qtd = 24) {
+    const container = document.getElementById('coracoes-confete');
+    container.innerHTML = '';
+    const emojis = ['💗','💖','💘','💝','💞','❤️','💕'];
+    for (let i = 0; i < qtd; i++) {
+        const coracao = document.createElement('span');
+        coracao.className = 'coracao-confete';
+        coracao.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+        coracao.style.left = Math.random() * 96 + 'vw';
+        coracao.style.fontSize = (1.6 + Math.random() * 1.8) + 'rem';
+        coracao.style.animationDelay = (Math.random() * 0.8) + 's';
+        container.appendChild(coracao);
+        // Remover após animação
+        setTimeout(() => coracao.remove(), 3200);
+    }
+}
+
+// Quando abrir o envelope final, solta os corações
+const abrirBtns = document.querySelectorAll('.abrir-proximo-btn');
+const envelopes = document.querySelectorAll('.envelope-bilhete');
+const envelopeFinal = document.getElementById('envelope-final');
+
+abrirBtns.forEach((btn, idx) => {
+    btn.addEventListener('click', () => {
+        if (!envelopes[idx + 1]) {
+            soltarCoracoesConfete();
+        }
+    });
+});
