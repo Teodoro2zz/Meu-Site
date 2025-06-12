@@ -83,26 +83,26 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 // Mostra o quiz
                 quizDiv.style.display = 'flex';
-                // ...dentro do abrirBtns.forEach...
-dicaBtn.disabled = true;
-dicaBtn.textContent = "Quero uma dica! (60s)";
-dicaBtn.style.opacity = "0.7";
-dicaBtn.style.cursor = "not-allowed";
-dicaBtn.style.display = 'inline-block';
-dicaTexto.style.display = 'none';
-let segundos = 60;
-if (dicaInterval) clearInterval(dicaInterval);
-dicaInterval = setInterval(() => {
-    segundos--;
-    dicaBtn.textContent = `Quero uma dica! (${segundos}s)`;
-    if (segundos <= 0) {
-        clearInterval(dicaInterval);
-        dicaBtn.disabled = false;
-        dicaBtn.textContent = "Quero uma dica! 💡";
-        dicaBtn.style.opacity = "1";
-        dicaBtn.style.cursor = "pointer";
-    }
-}, 1000);
+                // Configura botão de dica bloqueado com timer
+                dicaBtn.disabled = true;
+                dicaBtn.textContent = "Quero uma dica! (60s)";
+                dicaBtn.style.opacity = "0.7";
+                dicaBtn.style.cursor = "not-allowed";
+                dicaBtn.style.display = 'inline-block';
+                dicaTexto.style.display = 'none';
+                let segundos = 60;
+                if (dicaInterval) clearInterval(dicaInterval);
+                dicaInterval = setInterval(() => {
+                    segundos--;
+                    dicaBtn.textContent = `Quero uma dica! (${segundos}s)`;
+                    if (segundos <= 0) {
+                        clearInterval(dicaInterval);
+                        dicaBtn.disabled = false;
+                        dicaBtn.textContent = "Quero uma dica! 💡";
+                        dicaBtn.style.opacity = "1";
+                        dicaBtn.style.cursor = "pointer";
+                    }
+                }, 1000);
             }
         });
     });
@@ -145,7 +145,6 @@ dicaInterval = setInterval(() => {
     // Lógica do quiz
     if (enviarQuizBtn) {
         enviarQuizBtn.onclick = function() {
-            // Resposta correta (ajuste para sua data!)
             const respostaCerta = "24/01/2024";
             if (respostaQuiz.value.trim() === respostaCerta) {
                 quizFeedback.textContent = "Acertou! 💖";
@@ -182,12 +181,8 @@ dicaInterval = setInterval(() => {
             setTimeout(() => coracao.remove(), 3200);
         }
     }
-});
 
-document.addEventListener('DOMContentLoaded', function() {
-    // ...código existente...
-
-    // Botão de modo escuro romântico
+    // Botão de modo escuro romântico (na tela de confirmação)
     const darkBtn = document.getElementById('toggle-darkmode-btn');
     if (darkBtn) {
         darkBtn.addEventListener('click', function() {
@@ -199,6 +194,4 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-
-    // ...restante do código...
 });
