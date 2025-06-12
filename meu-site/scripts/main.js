@@ -63,6 +63,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const fecharFinalBtn = document.getElementById('fechar-envelope-final-btn');
     const reabrirBtn = document.getElementById('reabrir-envelopes-btn');
 
+    
+
     abrirBtns.forEach((btn, idx) => {
         btn.addEventListener('click', () => {
             envelopes[idx].style.display = 'none';
@@ -96,6 +98,45 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         reabrirBtn.style.display = 'none';
     });
+    // Quiz do envelope final
+const quizDiv = document.getElementById('quiz-envelope');
+const quizBtn = document.querySelectorAll('.abrir-proximo-btn');
+// const envelopes = document.querySelectorAll('.envelope-bilhete'); // Já declarado fora
+// const envelopeFinal = document.getElementById('envelope-final'); // Já declarado fora
+const enviarQuizBtn = document.getElementById('enviar-quiz-btn');
+const respostaQuiz = document.getElementById('resposta-quiz');
+const quizFeedback = document.getElementById('quiz-feedback');
+
+// Mostra o quiz ao tentar abrir o último envelope
+quizBtn.forEach((btn, idx) => {
+    btn.addEventListener('click', () => {
+        if (!envelopes[idx + 1]) {
+            quizDiv.style.display = 'flex';
+        }
+    });
+});
+
+// Lógica do quiz
+if (enviarQuizBtn) {
+    enviarQuizBtn.onclick = function() {
+        // Resposta correta (ajuste para sua data!)
+        const respostaCerta = "04/09/2024";
+        if (respostaQuiz.value.trim() === respostaCerta) {
+            quizFeedback.textContent = "Acertou! 💖";
+            setTimeout(() => {
+                quizDiv.style.display = 'none';
+                envelopeFinal.style.display = 'flex';
+                respostaQuiz.value = '';
+                quizFeedback.textContent = '';
+            }, 800);
+        } else {
+            quizFeedback.textContent = "Errou! 😱";
+            setTimeout(() => {
+                window.location.reload(); // Ou: window.location.href = "index.html";
+            }, 1200);
+        }
+    };
+}
 });
 
 function soltarCoracoesConfete(qtd = 24) {
