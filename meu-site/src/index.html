@@ -8,39 +8,44 @@
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Overlay inicial -->
     <div id="overlay-botao">
-    <!-- Corações animados no fundo -->
-    <span class="coracao-overlay" style="left:10vw; animation-delay:0s;">💗</span>
-    <span class="coracao-overlay" style="left:30vw; animation-delay:1s;">💖</span>
-    <span class="coracao-overlay" style="left:50vw; animation-delay:2s;">💞</span>
-    <span class="coracao-overlay" style="left:70vw; animation-delay:3s;">💘</span>
-    <span class="coracao-overlay" style="left:85vw; animation-delay:4s;">💝</span>
-    <!-- Frase romântica -->
-    <div class="frase-inicial">
-        Bem-vinda, meu amor! 💖<br>Prepare-se para uma surpresa especial...
+        <span class="coracao-overlay" style="left:10vw; animation-delay:0s;">💗</span>
+        <span class="coracao-overlay" style="left:30vw; animation-delay:1s;">💖</span>
+        <span class="coracao-overlay" style="left:50vw; animation-delay:2s;">💞</span>
+        <span class="coracao-overlay" style="left:70vw; animation-delay:3s;">💘</span>
+        <span class="coracao-overlay" style="left:85vw; animation-delay:4s;">💝</span>
+        <div class="frase-inicial">
+            Bem-vinda, meu amor! 💖<br>Prepare-se para uma surpresa especial...
+        </div>
+        <button id="play-music-btn">
+            <img src="assets/fotos/botao.png" alt="Clique aqui Amor💗" style="width:120px;height:120px;">
+            <br>
+            <span>Clique aqui Amor💗</span>
+        </button>
     </div>
-    <!-- Botão -->
-    <button id="play-music-btn">
-        <img src="assets/fotos/botao.png" alt="Clique aqui Amor💗" style="width:120px;height:120px;">
-        <br>
-        <span>Clique aqui Amor💗</span>
-    </button>
-</div>
-<div class="suspense-box">
-    <p>Tem certeza que quer ver a surpresa? 😏</p>
-    <div class="botoes-suspense">
-        <button id="confirmar-btn">Sim, quero!</button>
-        <button id="nao-btn">Não</button>
+
+    <!-- Suspense -->
+    <div id="overlay-suspense" style="display:none;">
+        <div class="suspense-box">
+            <p>Tem certeza que quer ver a surpresa? 😏</p>
+            <div class="botoes-suspense">
+                <button id="confirmar-btn">Sim, quero!</button>
+                <button id="nao-btn">Não</button>
+            </div>
+        </div>
     </div>
-</div>
-    </div>
+
+    <!-- Música -->
     <audio id="background-music" src="assets/music/musica.mp3" loop></audio>
+
+    <!-- Conteúdo principal -->
     <div id="conteudo-site" style="display:none;">
         <header>
-    <h1>Para Meu Amor 💗</h1>
-    <div id="contador-dias"></div>
-    <p class="frase-romantica">"Você é o meu melhor momento todos os dias!"</p>
-</header>
+            <h1>Para Meu Amor 💗</h1>
+            <div id="contador-dias"></div>
+            <p class="frase-romantica">"Você é o meu melhor momento todos os dias!"</p>
+        </header>
         <main>
             <section>
                 <h2>Nossos Momentos</h2>
@@ -53,18 +58,13 @@
             </section>
             <section>
                 <h2>Mensagem</h2>
-                <p>🌹 Hoje eu só quero te lembrar o quanto sou grato por ter você na minha vida.
-
-Você é o meu refúgio nos dias difíceis e a minha risada fácil nos dias bons. Com você, tudo faz mais sentido. Até as coisas mais simples viram momentos especiais só porque você está ali, do meu lado.
-
-Te amar é leve, é bonito, é real. E mesmo que às vezes eu não saiba colocar tudo em palavras, o que eu sinto por você é enorme — maior do que qualquer texto conseguiria explicar.
-
-Obrigado por ser você. Por me escolher todos os dias, mesmo quando eu não sou perfeito. Por me amar do jeitinho que eu sou.
-
-Hoje é Dia dos Namorados, mas eu te amo todos os dias. E quero seguir construindo com você uma história cheia de amor, parceria e sonhos realizados.
-
-Com todo o meu coração,
-Te amo.</p>
+                <p>🌹 Hoje eu só quero te lembrar o quanto sou grato por ter você na minha vida.<br><br>
+                Você é o meu refúgio nos dias difíceis e a minha risada fácil nos dias bons. Com você, tudo faz mais sentido. Até as coisas mais simples viram momentos especiais só porque você está ali, do meu lado.<br><br>
+                Te amar é leve, é bonito, é real. E mesmo que às vezes eu não saiba colocar tudo em palavras, o que eu sinto por você é enorme — maior do que qualquer texto conseguiria explicar.<br><br>
+                Obrigado por ser você. Por me escolher todos os dias, mesmo quando eu não sou perfeito. Por me amar do jeitinho que eu sou.<br><br>
+                Hoje é Dia dos Namorados, mas eu te amo todos os dias. E quero seguir construindo com você uma história cheia de amor, parceria e sonhos realizados.<br><br>
+                Com todo o meu coração,<br>
+                Te amo.</p>
             </section>
         </main>
         <footer>
