@@ -16,40 +16,39 @@
             text-align: center;
             margin-top: 32px;
         }
-        .carrossel {
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-start;
+            max-width: 1200px;
+            margin: 0 auto;
+            min-height: 60vh;
+        }
+        .mensagem {
+            flex: 1;
+            margin: 32px 0 0 40px;
+            font-size: 1.2em;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            margin: 32px 0;
+            justify-content: center;
+        }
+        .mensagem h2 {
+            text-align: left;
+        }
+        .carrossel-lateral {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            margin: 32px 40px 0 0;
         }
         .carrossel-img {
-            max-width: 90vw;
-            max-height: 320px;
+            max-width: 350px;
+            max-height: 400px;
             border-radius: 16px;
             box-shadow: 0 2px 8px #0002;
             margin-bottom: 12px;
-        }
-        .carrossel-botoes {
-            margin-top: 10px;
-        }
-        .carrossel-botoes button {
-            background: #fff;
-            border: 1px solid #ccc;
-            border-radius: 50%;
-            width: 36px;
-            height: 36px;
-            font-size: 20px;
-            margin: 0 10px;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-        .carrossel-botoes button:hover {
-            background: #ffe0ef;
-        }
-        .mensagem {
-            text-align: center;
-            margin: 32px 0 0 0;
-            font-size: 1.2em;
         }
         #overlay-botao {
             position: fixed;
@@ -110,6 +109,19 @@
             font-weight: bold;
             letter-spacing: 2px;
         }
+        @media (max-width: 900px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .carrossel-lateral, .mensagem {
+                margin: 24px 0 0 0;
+                align-items: center;
+            }
+            .carrossel-lateral {
+                align-items: center;
+            }
+        }
     </style>
 </head>
 <body>
@@ -124,24 +136,16 @@
         <header>
             <h1>Para Meu Amor 💗</h1>
         </header>
-        <main>
-            <section>
-                <h2 style="text-align:center;">Nossos Momentos</h2>
-                <div class="carrossel">
-                    <img id="carrossel-img" class="carrossel-img" src="assets/fotos/foto1.png" alt="Foto especial">
-                    <div class="carrossel-botoes">
-                        <button id="anterior" title="Anterior">&lt;</button>
-                        <button id="proximo" title="Próxima">&gt;</button>
-                    </div>
-                </div>
-            </section>
-            <section>
-                <div class="mensagem">
-                    <h2>Mensagem</h2>
-                    <p>Oi meu amor! Esse site é só pra você, com todo meu carinho. Te amo! 💖</p>
-                </div>
-            </section>
-        </main>
+        <div class="container">
+            <div class="mensagem">
+                <h2>Mensagem</h2>
+                <p>Oi meu amor! Esse site é só pra você, com todo meu carinho. Te amo! 💖</p>
+            </div>
+            <div class="carrossel-lateral">
+                <h2 style="text-align:right;">Nossos Momentos</h2>
+                <img id="carrossel-img" class="carrossel-img" src="assets/fotos/amor.png" alt="Foto especial">
+            </div>
+        </div>
     </div>
     <script>
         // Música só toca após interação do usuário e animação dos corações/data
@@ -164,7 +168,7 @@
             }, 2500);
         });
 
-        // Carrossel de fotos
+        // Carrossel automático
         const fotos = [
             "assets/fotos/amor.png",
             "assets/fotos/vida.png",
@@ -173,14 +177,10 @@
         ];
         let indice = 0;
         const img = document.getElementById('carrossel-img');
-        document.getElementById('anterior').onclick = function() {
-            indice = (indice - 1 + fotos.length) % fotos.length;
-            img.src = fotos[indice];
-        };
-        document.getElementById('proximo').onclick = function() {
+        setInterval(() => {
             indice = (indice + 1) % fotos.length;
             img.src = fotos[indice];
-        };
+        }, 2500); // Troca a cada 2,5 segundos
     </script>
 </body>
 </html>
