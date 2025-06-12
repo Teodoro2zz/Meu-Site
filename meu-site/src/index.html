@@ -69,14 +69,46 @@
 </div>
             <section id="envelope-section">
     <h2>Mensagem</h2>
-    <div id="bilhetes">
-        <div class="bilhete">Você é meu sorriso favorito 😍</div>
-        <div class="bilhete">Te amo mais a cada dia 💖</div>
-        <div class="bilhete">Obrigado por existir na minha vida ✨</div>
-        <div class="bilhete">Você é meu porto seguro 🥰</div>
+    <div id="envelopes-bilhetes">
+        <!-- Envelope 1 -->
+        <div class="envelope-bilhete" style="display: flex;">
+            <div class="envelope-top"></div>
+            <div class="envelope-body">
+                <div class="mensagem-bilhete">Você é meu sorriso favorito 😍</div>
+                <button class="abrir-proximo-btn">Abrir próximo 💌</button>
+                <button class="fechar-envelope-btn">Fechar ✖️</button>
+            </div>
+        </div>
+        <!-- Envelope 2 -->
+        <div class="envelope-bilhete" style="display: none;">
+            <div class="envelope-top"></div>
+            <div class="envelope-body">
+                <div class="mensagem-bilhete">Te amo mais a cada dia 💖</div>
+                <button class="abrir-proximo-btn">Abrir próximo 💌</button>
+                <button class="fechar-envelope-btn">Fechar ✖️</button>
+            </div>
+        </div>
+        <!-- Envelope 3 -->
+        <div class="envelope-bilhete" style="display: none;">
+            <div class="envelope-top"></div>
+            <div class="envelope-body">
+                <div class="mensagem-bilhete">Obrigado por existir na minha vida ✨</div>
+                <button class="abrir-proximo-btn">Abrir próximo 💌</button>
+                <button class="fechar-envelope-btn">Fechar ✖️</button>
+            </div>
+        </div>
+        <!-- Envelope 4 -->
+        <div class="envelope-bilhete" style="display: none;">
+            <div class="envelope-top"></div>
+            <div class="envelope-body">
+                <div class="mensagem-bilhete">Você é meu porto seguro 🥰</div>
+                <button class="abrir-proximo-btn">Abrir envelope final 💖</button>
+                <button class="fechar-envelope-btn">Fechar ✖️</button>
+            </div>
+        </div>
     </div>
-    <button id="abrir-envelope-btn">Abrir envelope 💌</button>
-    <div id="envelope" style="display:none;">
+    <!-- Envelope final -->
+    <div id="envelope-final" style="display: none;">
         <div class="envelope-top"></div>
         <div class="envelope-body">
             <div class="mensagem-principal">
@@ -88,6 +120,7 @@
                 Com todo o meu coração,<br>
                 Te amo.</p>
             </div>
+            <button id="fechar-envelope-final-btn">Fechar ✖️</button>
         </div>
     </div>
 </section>

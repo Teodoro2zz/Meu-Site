@@ -67,3 +67,34 @@ document.getElementById('abrir-envelope-btn').addEventListener('click', function
     this.style.display = 'none';
     document.getElementById('envelope').style.display = 'flex';
 });
+
+// Controle dos envelopes de bilhetes e envelope final
+const envelopes = document.querySelectorAll('.envelope-bilhete');
+const abrirBtns = document.querySelectorAll('.abrir-proximo-btn');
+const fecharBtns = document.querySelectorAll('.fechar-envelope-btn');
+const envelopeFinal = document.getElementById('envelope-final');
+const fecharFinalBtn = document.getElementById('fechar-envelope-final-btn');
+
+abrirBtns.forEach((btn, idx) => {
+    btn.addEventListener('click', () => {
+        envelopes[idx].style.display = 'none';
+        if (envelopes[idx + 1]) {
+            envelopes[idx + 1].style.display = 'flex';
+        } else {
+            envelopeFinal.style.display = 'flex';
+        }
+    });
+});
+
+fecharBtns.forEach((btn, idx) => {
+    btn.addEventListener('click', () => {
+        envelopes[idx].style.display = 'none';
+        // Se quiser reabrir, pode adicionar um botão externo para mostrar o primeiro envelope novamente
+    });
+});
+
+if (fecharFinalBtn) {
+    fecharFinalBtn.addEventListener('click', () => {
+        envelopeFinal.style.display = 'none';
+    });
+}

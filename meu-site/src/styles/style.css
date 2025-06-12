@@ -338,12 +338,18 @@ footer {
     background: #ad0057;
 }
 
-#envelope {
+#envelopes-bilhetes, #envelope-final {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 16px;
-    animation: abrirEnvelope 1s;
+    gap: 18px;
+    margin-bottom: 24px;
+}
+
+.envelope-bilhete, #envelope-final {
+    flex-direction: column;
+    align-items: center;
+    animation: abrirEnvelope 0.8s;
 }
 
 .envelope-top {
@@ -358,13 +364,59 @@ footer {
 
 .envelope-body {
     width: 220px;
-    min-height: 180px;
+    min-height: 80px;
     background: #fff;
     border-radius: 0 0 16px 16px;
     box-shadow: 0 2px 16px #e6007340;
-    padding: 24px 18px;
+    padding: 24px 18px 16px 18px;
     z-index: 1;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mensagem-bilhete {
+    color: #e60073;
+    font-size: 1.1rem;
+    font-family: 'Pacifico', cursive, Arial, sans-serif;
+    margin-bottom: 14px;
+    text-align: center;
+}
+
+.abrir-proximo-btn, .fechar-envelope-btn, #fechar-envelope-final-btn {
+    margin: 4px 0 0 0;
+    background: #e60073;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 18px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-family: 'Pacifico', cursive, Arial, sans-serif;
+    transition: background 0.2s;
+    box-shadow: 0 2px 8px #e6007333;
+    display: inline-block;
+}
+
+.abrir-proximo-btn:hover, #fechar-envelope-final-btn:hover {
+    background: #ad0057;
+}
+
+.fechar-envelope-btn {
+    background: #fff0f6;
+    color: #e60073;
+    border: 2px solid #e60073;
+    margin-left: 8px;
+}
+
+.fechar-envelope-btn:hover {
+    background: #e60073;
+    color: #fff;
+}
+
+#envelope-final .envelope-body {
+    min-height: 180px;
 }
 
 .mensagem-principal {
@@ -373,9 +425,4 @@ footer {
     font-family: Arial, sans-serif;
     text-align: left;
     animation: fadeIn 1.2s;
-}
-
-@keyframes abrirEnvelope {
-    from { transform: scaleY(0.2) scaleX(0.8); opacity: 0; }
-    to { transform: scaleY(1) scaleX(1); opacity: 1; }
 }
