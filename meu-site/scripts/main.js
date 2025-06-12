@@ -182,16 +182,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Botão de modo escuro romântico (na tela de confirmação)
-    const darkBtn = document.getElementById('toggle-darkmode-btn');
-    if (darkBtn) {
-        darkBtn.addEventListener('click', function() {
-            document.body.classList.toggle('darkmode');
-            if (document.body.classList.contains('darkmode')) {
-                darkBtn.textContent = "☀️ Modo Claro";
-            } else {
-                darkBtn.textContent = "🌙 Modo Escuro";
-            }
+
         });
-    }
-});
+ 
