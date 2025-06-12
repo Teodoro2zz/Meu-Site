@@ -504,3 +504,24 @@ footer {
 #enviar-quiz-btn:hover {
     background: #ad0057;
 }
+
+body.darkmode {
+    background: linear-gradient(135deg, #1a0022 0%, #3a003a 100%);
+    color: #ffe6f7;
+    transition: background 0.5s, color 0.5s;
+}
+.darkmode .envelope-body,
+.darkmode .quiz-pergunta {
+    background: #2d0033 !important;
+    color: #ffe6f7 !important;
+    box-shadow: 0 0 24px #ff4da6a0;
+}
+.darkmode .btn-rosa {
+    background: #ff4da6 !important;
+    color: #fff !important;
+    border: none !important;
+}
+.darkmode #toggle-darkmode-btn {
+    background: #ffe6f7 !important;
+    color: #3a003a !important;
+}
