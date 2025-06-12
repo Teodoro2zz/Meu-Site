@@ -156,12 +156,14 @@ footer {
     width: 140px;
     border-radius: 12px;
     box-shadow: 0 2px 8px #e6007333;
+    object-fit: cover;
+    aspect-ratio: 1/1;
 }
 @media (max-width: 600px) {
     .galeria {
         grid-template-columns: 1fr;
     }
-    .galeria img {
-        width: 90vw;
+        .galeria img {
+            width: 90vw;
+        }
     }
-}
