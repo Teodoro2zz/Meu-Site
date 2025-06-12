@@ -6,17 +6,28 @@
     <title>Para Meu Amor 💗</title>
     <link rel="stylesheet" href="styles/style.css">
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #fff0f6;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            text-align: center;
+            margin-top: 32px;
+        }
         .carrossel {
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin: 24px 0;
+            margin: 32px 0;
         }
         .carrossel-img {
             max-width: 90vw;
-            max-height: 300px;
+            max-height: 320px;
             border-radius: 16px;
             box-shadow: 0 2px 8px #0002;
+            margin-bottom: 12px;
         }
         .carrossel-botoes {
             margin-top: 10px;
@@ -25,41 +36,77 @@
             background: #fff;
             border: 1px solid #ccc;
             border-radius: 50%;
-            width: 32px;
-            height: 32px;
-            font-size: 18px;
-            margin: 0 8px;
+            width: 36px;
+            height: 36px;
+            font-size: 20px;
+            margin: 0 10px;
             cursor: pointer;
+            transition: background 0.2s;
+        }
+        .carrossel-botoes button:hover {
+            background: #ffe0ef;
+        }
+        .mensagem {
+            text-align: center;
+            margin: 32px 0 0 0;
+            font-size: 1.2em;
+        }
+        #overlay-botao {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: #fff0f6ee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            z-index: 10;
+        }
+        #play-music-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            outline: none;
+        }
+        #play-music-btn img {
+            width: 120px;
+            height: 120px;
+        }
+        #play-music-btn span {
+            display: block;
+            margin-top: 10px;
+            font-size: 1.1em;
+            color: #d72660;
         }
     </style>
 </head>
 <body>
     <div id="overlay-botao">
         <button id="play-music-btn">
-            <img src="assets/fotos/botao.png" alt="Clique aqui Amor💗" style="width:120px;height:120px;">
-            <br>
+            <img src="assets/fotos/botao.png" alt="Clique aqui Amor💗">
             <span>Clique aqui Amor💗</span>
         </button>
     </div>
-    <audio id="background-music" src="assets/music/vem-ca.mp3" loop></audio>
+    <audio id="background-music" src="assets/music/vemca.mp3" loop></audio>
     <div id="conteudo-site" style="display:none;">
         <header>
             <h1>Para Meu Amor 💗</h1>
         </header>
         <main>
             <section>
-                <h2>Nossos Momentos</h2>
+                <h2 style="text-align:center;">Nossos Momentos</h2>
                 <div class="carrossel">
-                    <img id="carrossel-img" class="carrossel-img" src="assets/fotos/Foto1.png" alt="Foto especial">
+                    <img id="carrossel-img" class="carrossel-img" src="assets/fotos/foto1.png" alt="Foto especial">
                     <div class="carrossel-botoes">
-                        <button id="anterior">&lt;</button>
-                        <button id="proximo">&gt;</button>
+                        <button id="anterior" title="Anterior">&lt;</button>
+                        <button id="proximo" title="Próxima">&gt;</button>
                     </div>
                 </div>
             </section>
             <section>
-                <h2>Mensagem</h2>
-                <p>Oi meu amor! Esse site é só pra você, com todo meu carinho. Te amo! 💖</p>
+                <div class="mensagem">
+                    <h2>Mensagem</h2>
+                    <p>Oi meu amor! Esse site é só pra você, com todo meu carinho. Te amo! 💖</p>
+                </div>
             </section>
         </main>
     </div>
@@ -74,9 +121,10 @@
 
         // Carrossel de fotos
         const fotos = [
-            "assets/fotos/Foto1.png",
-            "assets/fotos/Foto2.png",
-            "assets/fotos/Foto3.png"
+            "assets/fotos/foto1.png",
+            "assets/fotos/foto2.png",
+            "assets/fotos/foto3.png",
+            "assets/fotos/foto4.png"
         ];
         let indice = 0;
         const img = document.getElementById('carrossel-img');
