@@ -525,3 +525,44 @@ body.darkmode {
     background: #ffe6f7 !important;
     color: #3a003a !important;
 }
+
+/* Modo escuro romântico */
+body.darkmode {
+    background: linear-gradient(135deg, #1a0022 0%, #3a003a 100%) !important;
+    color: #ffe6f7 !important;
+    transition: background 0.5s, color 0.5s;
+}
+
+body.darkmode .suspense-box,
+body.darkmode .envelope-bilhete,
+body.darkmode .quiz-pergunta,
+body.darkmode .mensagem-final {
+    background: #2d0033 !important;
+    color: #ffe6f7 !important;
+    box-shadow: 0 0 24px #ff4da6a0;
+}
+
+body.darkmode .btn-rosa,
+body.darkmode #confirmar-btn {
+    background: #ff4da6 !important;
+    color: #fff !important;
+    border: none !important;
+}
+
+body.darkmode #toggle-darkmode-btn {
+    background: #ffe6f7 !important;
+    color: #3a003a !important;
+    border: none !important;
+}
+
+body.darkmode .botoes-suspense button {
+    border-color: #ff4da6 !important;
+}
+
+body.darkmode .botoes-suspense {
+    background: transparent !important;
+}
+
+body.darkmode .coracao-overlay {
+    filter: brightness(1.5) drop-shadow(0 0 8px #ff4da6);
+}
