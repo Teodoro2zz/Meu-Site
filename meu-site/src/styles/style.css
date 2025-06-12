@@ -161,7 +161,7 @@ footer {
     .galeria {
         grid-template-columns: 1fr;
     }
-        .galeria img {
-            width: 90vw;
-        }
+    .galeria img {
+        width: 90vw;
     }
+}
