@@ -70,6 +70,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const enviarQuizBtn = document.getElementById('enviar-quiz-btn');
     const respostaQuiz = document.getElementById('resposta-quiz');
     const quizFeedback = document.getElementById('quiz-feedback');
+    const dicaBtn = document.getElementById('dica-quiz-btn');
+    const dicaTexto = document.getElementById('dica-quiz-texto');
+    let dicaTimer;
 
     // Controle dos envelopes
     abrirBtns.forEach((btn, idx) => {
@@ -78,8 +81,15 @@ document.addEventListener('DOMContentLoaded', function() {
             if (envelopes[idx + 1]) {
                 envelopes[idx + 1].style.display = 'flex';
             } else {
-                // Ao tentar abrir o último envelope, mostra o quiz
+                // Mostra o quiz
                 quizDiv.style.display = 'flex';
+                // Esconde dica e botão, inicia timer
+                dicaBtn.style.display = 'none';
+                dicaTexto.style.display = 'none';
+                if (dicaTimer) clearTimeout(dicaTimer);
+                dicaTimer = setTimeout(() => {
+                    dicaBtn.style.display = 'inline-block';
+                }, 60000); // 60 segundos
             }
         });
     });
@@ -107,6 +117,15 @@ document.addEventListener('DOMContentLoaded', function() {
             });
             reabrirBtn.style.display = 'none';
         });
+    }
+
+    // Botão de dica
+    if (dicaBtn) {
+        dicaBtn.onclick = function() {
+            dicaTexto.textContent = "Dica: O mês é janeiro e o dia é 24 😉";
+            dicaTexto.style.display = 'block';
+            dicaBtn.style.display = 'none';
+        };
     }
 
     // Lógica do quiz
