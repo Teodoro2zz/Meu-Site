@@ -1,0 +1,146 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #ffe6f2;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    text-align: center;
+    color: #e60073;
+    margin-top: 24px;
+}
+
+h1, h2 {
+    font-family: 'Pacifico', cursive, Arial, sans-serif;
+    margin-bottom: 10px;
+}
+
+main {
+    padding: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+section {
+    margin-bottom: 32px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px #e6007333;
+    padding: 16px;
+}
+
+.galeria {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 10px;
+}
+.galeria img {
+    width: 120px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px #e6007333;
+}
+
+#overlay-botao {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #ffe6f2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+#play-music-btn {
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.5rem;
+    color: #e60073;
+    font-weight: bold;
+    transition: transform 0.2s;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 #e6007340; }
+    70% { box-shadow: 0 0 0 15px #e6007300; }
+    100% { box-shadow: 0 0 0 0 #e6007300; }
+}
+
+#play-music-btn:hover {
+    transform: scale(1.05);
+}
+
+#play-music-btn img {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 10px;
+}
+
+#play-music-btn span {
+    font-size: 1.3rem;
+    color: #e60073;
+    text-shadow: 1px 1px 5px #fff;
+}
+
+/* Corações animados */
+.heart {
+    position: fixed;
+    bottom: 0;
+    font-size: 2.5rem;
+    animation: subir 2s linear forwards;
+    pointer-events: none;
+    z-index: 10000;
+}
+
+@keyframes subir {
+    0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    80% {
+        opacity: 1;
+        transform: translateY(-80vh) scale(1.2);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-100vh) scale(1.4);
+    }
+}
+
+footer {
+    text-align: center;
+    color: #e60073;
+    margin-bottom: 16px;
+    font-size: 1.1rem;
+    font-family: 'Pacifico', cursive, Arial, sans-serif;
+}
+
+@media (max-width: 600px) {
+    main {
+        padding: 10px;
+    }
+    section {
+        padding: 10px;
+    }
+    .galeria img {
+        width: 80px;
+    }
+    #play-music-btn img {
+        width: 80px;
+        height: 80px;
+    }
+    #play-music-btn span {
+        font-size: 1rem;
+    }
+}
