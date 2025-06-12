@@ -45,3 +45,18 @@ function atualizarContadorDias() {
         `<span class="dias-juntos">Estamos juntos há <strong>${dias}</strong> dias! 🥰</span>`;
 }
 atualizarContadorDias();
+
+// Lightbox para galeria de fotos
+document.querySelectorAll('.foto-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault(); // Impede sair do site!
+        document.getElementById('img-lightbox').src = this.href;
+        document.getElementById('lightbox').style.display = 'flex';
+    });
+});
+document.getElementById('fechar-lightbox').onclick = function() {
+    document.getElementById('lightbox').style.display = 'none';
+};
+document.getElementById('lightbox').onclick = function(e) {
+    if (e.target === this) this.style.display = 'none';
+};
