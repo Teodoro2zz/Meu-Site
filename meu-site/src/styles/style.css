@@ -414,3 +414,29 @@ footer {
     from { transform: scaleY(0.2) scaleX(0.8); opacity: 0; }
     to { transform: scaleY(1) scaleX(1); opacity: 1; }
 }
+#reabrir-envelopes-btn {
+    background: #e60073;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 14px 32px;
+    font-size: 1.2rem;
+    font-family: 'Pacifico', cursive, Arial, sans-serif;
+    cursor: pointer;
+    margin: 20px auto 0 auto;
+    box-shadow: 0 2px 8px #e6007333;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.2s, transform 0.2s;
+    outline: none;
+}
+#reabrir-envelopes-btn:hover {
+    background: #ad0057;
+    transform: scale(1.05);
+}
+#reabrir-envelopes-btn span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
