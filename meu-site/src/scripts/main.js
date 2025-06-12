@@ -1,15 +1,24 @@
+// Substitua o evento antigo:
 document.getElementById('play-music-btn').addEventListener('click', function() {
-    document.getElementById('background-music').play();
     document.getElementById('overlay-botao').style.display = 'none';
-    document.getElementById('conteudo-site').style.display = 'block';
+    document.getElementById('overlay-suspense').style.display = 'flex';
+    // Inicia a música já aqui para dar tempo de carregar
+    document.getElementById('background-music').play();
+});
 
+// Novo evento para o botão "Sim, quero!"
+document.getElementById('confirmar-btn').addEventListener('click', function() {
+    document.getElementById('overlay-suspense').style.display = 'none';
+    document.getElementById('conteudo-site').style.display = 'block';
+    // Aqui você pode adicionar corações ou outros efeitos se quiser
+});
     // Efeito de corações subindo
     for (let i = 0; i < 20; i++) {
         setTimeout(() => {
             criarCoracao();
         }, i * 150);
     }
-});
+
 
 function criarCoracao() {
     const heart = document.createElement('div');
