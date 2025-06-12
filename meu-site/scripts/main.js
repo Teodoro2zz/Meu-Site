@@ -1,10 +1,11 @@
-// Funções que podem rodar fora do DOMContentLoaded (se o script está no final do body)
+// Overlay inicial
 document.getElementById('play-music-btn').addEventListener('click', function() {
     document.getElementById('overlay-botao').style.display = 'none';
     document.getElementById('overlay-suspense').style.display = 'flex';
     document.getElementById('background-music').play();
 });
 
+// Suspense
 document.getElementById('confirmar-btn').addEventListener('click', function() {
     document.getElementById('overlay-suspense').style.display = 'none';
     document.getElementById('conteudo-site').style.display = 'block';
@@ -56,6 +57,7 @@ document.getElementById('lightbox').onclick = function(e) {
 };
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Envelopes e botões
     const envelopes = document.querySelectorAll('.envelope-bilhete');
     const abrirBtns = document.querySelectorAll('.abrir-proximo-btn');
     const fecharBtns = document.querySelectorAll('.fechar-envelope-btn');
@@ -63,15 +65,21 @@ document.addEventListener('DOMContentLoaded', function() {
     const fecharFinalBtn = document.getElementById('fechar-envelope-final-btn');
     const reabrirBtn = document.getElementById('reabrir-envelopes-btn');
 
-    
+    // Quiz
+    const quizDiv = document.getElementById('quiz-envelope');
+    const enviarQuizBtn = document.getElementById('enviar-quiz-btn');
+    const respostaQuiz = document.getElementById('resposta-quiz');
+    const quizFeedback = document.getElementById('quiz-feedback');
 
+    // Controle dos envelopes
     abrirBtns.forEach((btn, idx) => {
         btn.addEventListener('click', () => {
             envelopes[idx].style.display = 'none';
             if (envelopes[idx + 1]) {
                 envelopes[idx + 1].style.display = 'flex';
             } else {
-                envelopeFinal.style.display = 'flex';
+                // Ao tentar abrir o último envelope, mostra o quiz
+                quizDiv.style.display = 'flex';
             }
         });
     });
@@ -90,81 +98,55 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    reabrirBtn.addEventListener('click', () => {
-        // Esconde envelope final, mostra o primeiro envelope
-        envelopeFinal.style.display = 'none';
-        envelopes.forEach((env, i) => {
-            env.style.display = i === 0 ? 'flex' : 'none';
+    if (reabrirBtn) {
+        reabrirBtn.addEventListener('click', () => {
+            envelopeFinal.style.display = 'none';
+            quizDiv.style.display = 'none';
+            envelopes.forEach((env, i) => {
+                env.style.display = i === 0 ? 'flex' : 'none';
+            });
+            reabrirBtn.style.display = 'none';
         });
-        reabrirBtn.style.display = 'none';
-    });
-    // Quiz do envelope final
-const quizDiv = document.getElementById('quiz-envelope');
-const quizBtn = document.querySelectorAll('.abrir-proximo-btn');
-// const envelopes = document.querySelectorAll('.envelope-bilhete'); // Já declarado fora
-// const envelopeFinal = document.getElementById('envelope-final'); // Já declarado fora
-const enviarQuizBtn = document.getElementById('enviar-quiz-btn');
-const respostaQuiz = document.getElementById('resposta-quiz');
-const quizFeedback = document.getElementById('quiz-feedback');
-
-// Mostra o quiz ao tentar abrir o último envelope
-quizBtn.forEach((btn, idx) => {
-    btn.addEventListener('click', () => {
-        if (!envelopes[idx + 1]) {
-            quizDiv.style.display = 'flex';
-        }
-    });
-});
-
-// Lógica do quiz
-if (enviarQuizBtn) {
-    enviarQuizBtn.onclick = function() {
-        // Resposta correta (ajuste para sua data!)
-        const respostaCerta = "04/09/2024";
-        if (respostaQuiz.value.trim() === respostaCerta) {
-            quizFeedback.textContent = "Acertou! 💖";
-            setTimeout(() => {
-                quizDiv.style.display = 'none';
-                envelopeFinal.style.display = 'flex';
-                respostaQuiz.value = '';
-                quizFeedback.textContent = '';
-            }, 800);
-        } else {
-            quizFeedback.textContent = "Errou! 😱";
-            setTimeout(() => {
-                window.location.reload(); // Ou: window.location.href = "index.html";
-            }, 1200);
-        }
-    };
-}
-});
-
-function soltarCoracoesConfete(qtd = 24) {
-    const container = document.getElementById('coracoes-confete');
-    container.innerHTML = '';
-    const emojis = ['💗','💖','💘','💝','💞','❤️','💕'];
-    for (let i = 0; i < qtd; i++) {
-        const coracao = document.createElement('span');
-        coracao.className = 'coracao-confete';
-        coracao.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-        coracao.style.left = Math.random() * 96 + 'vw';
-        coracao.style.fontSize = (1.6 + Math.random() * 1.8) + 'rem';
-        coracao.style.animationDelay = (Math.random() * 0.8) + 's';
-        container.appendChild(coracao);
-        // Remover após animação
-        setTimeout(() => coracao.remove(), 3200);
     }
-}
 
-// Quando abrir o envelope final, solta os corações
-const abrirBtns = document.querySelectorAll('.abrir-proximo-btn');
-const envelopes = document.querySelectorAll('.envelope-bilhete');
-const envelopeFinal = document.getElementById('envelope-final');
+    // Lógica do quiz
+    if (enviarQuizBtn) {
+        enviarQuizBtn.onclick = function() {
+            // Resposta correta (ajuste para sua data!)
+            const respostaCerta = "24/01/2024";
+            if (respostaQuiz.value.trim() === respostaCerta) {
+                quizFeedback.textContent = "Acertou! 💖";
+                setTimeout(() => {
+                    quizDiv.style.display = 'none';
+                    envelopeFinal.style.display = 'flex';
+                    soltarCoracoesConfete();
+                    respostaQuiz.value = '';
+                    quizFeedback.textContent = '';
+                }, 800);
+            } else {
+                quizFeedback.textContent = "Errou! 😱";
+                setTimeout(() => {
+                    window.location.reload();
+                }, 1200);
+            }
+        };
+    }
 
-abrirBtns.forEach((btn, idx) => {
-    btn.addEventListener('click', () => {
-        if (!envelopes[idx + 1]) {
-            soltarCoracoesConfete();
+    // Função corações confete
+    function soltarCoracoesConfete(qtd = 24) {
+        const container = document.getElementById('coracoes-confete');
+        if (!container) return;
+        container.innerHTML = '';
+        const emojis = ['💗','💖','💘','💝','💞','❤️','💕'];
+        for (let i = 0; i < qtd; i++) {
+            const coracao = document.createElement('span');
+            coracao.className = 'coracao-confete';
+            coracao.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+            coracao.style.left = Math.random() * 96 + 'vw';
+            coracao.style.fontSize = (1.6 + Math.random() * 1.8) + 'rem';
+            coracao.style.animationDelay = (Math.random() * 0.8) + 's';
+            container.appendChild(coracao);
+            setTimeout(() => coracao.remove(), 3200);
         }
-    });
+    }
 });
