@@ -144,3 +144,24 @@ footer {
         font-size: 1rem;
     }
 }
+
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    justify-items: center;
+    margin-top: 10px;
+}
+.galeria img {
+    width: 140px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px #e6007333;
+}
+@media (max-width: 600px) {
+    .galeria {
+        grid-template-columns: 1fr;
+    }
+    .galeria img {
+        width: 90vw;
+    }
+}
