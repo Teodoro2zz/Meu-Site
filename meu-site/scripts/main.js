@@ -83,22 +83,26 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 // Mostra o quiz
                 quizDiv.style.display = 'flex';
-                // Esconde texto da dica, reseta botão e inicia timer
-                dicaBtn.disabled = true;
-                dicaBtn.textContent = "Quero uma dica! (60s)";
-                dicaBtn.style.display = 'inline-block';
-                dicaTexto.style.display = 'none';
-                let segundos = 60;
-                if (dicaInterval) clearInterval(dicaInterval);
-                dicaInterval = setInterval(() => {
-                    segundos--;
-                    dicaBtn.textContent = `Quero uma dica! (${segundos}s)`;
-                    if (segundos <= 0) {
-                        clearInterval(dicaInterval);
-                        dicaBtn.disabled = false;
-                        dicaBtn.textContent = "Quero uma dica! 💡";
-                    }
-                }, 1000);
+                // ...dentro do abrirBtns.forEach...
+dicaBtn.disabled = true;
+dicaBtn.textContent = "Quero uma dica! (60s)";
+dicaBtn.style.opacity = "0.7";
+dicaBtn.style.cursor = "not-allowed";
+dicaBtn.style.display = 'inline-block';
+dicaTexto.style.display = 'none';
+let segundos = 60;
+if (dicaInterval) clearInterval(dicaInterval);
+dicaInterval = setInterval(() => {
+    segundos--;
+    dicaBtn.textContent = `Quero uma dica! (${segundos}s)`;
+    if (segundos <= 0) {
+        clearInterval(dicaInterval);
+        dicaBtn.disabled = false;
+        dicaBtn.textContent = "Quero uma dica! 💡";
+        dicaBtn.style.opacity = "1";
+        dicaBtn.style.cursor = "pointer";
+    }
+}, 1000);
             }
         });
     });
