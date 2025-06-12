@@ -55,13 +55,13 @@ document.getElementById('lightbox').onclick = function(e) {
     if (e.target === this) this.style.display = 'none';
 };
 
-// Envelopes animados
 document.addEventListener('DOMContentLoaded', function() {
     const envelopes = document.querySelectorAll('.envelope-bilhete');
     const abrirBtns = document.querySelectorAll('.abrir-proximo-btn');
     const fecharBtns = document.querySelectorAll('.fechar-envelope-btn');
     const envelopeFinal = document.getElementById('envelope-final');
     const fecharFinalBtn = document.getElementById('fechar-envelope-final-btn');
+    const reabrirBtn = document.getElementById('reabrir-envelopes-btn');
 
     abrirBtns.forEach((btn, idx) => {
         btn.addEventListener('click', () => {
@@ -77,12 +77,23 @@ document.addEventListener('DOMContentLoaded', function() {
     fecharBtns.forEach((btn, idx) => {
         btn.addEventListener('click', () => {
             envelopes[idx].style.display = 'none';
+            reabrirBtn.style.display = 'block';
         });
     });
 
     if (fecharFinalBtn) {
         fecharFinalBtn.addEventListener('click', () => {
             envelopeFinal.style.display = 'none';
+            reabrirBtn.style.display = 'block';
         });
     }
+
+    reabrirBtn.addEventListener('click', () => {
+        // Esconde envelope final, mostra o primeiro envelope
+        envelopeFinal.style.display = 'none';
+        envelopes.forEach((env, i) => {
+            env.style.display = i === 0 ? 'flex' : 'none';
+        });
+        reabrirBtn.style.display = 'none';
+    });
 });
