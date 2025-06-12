@@ -30,6 +30,14 @@
             </section>
         </main>
     </div>
-    <script src="scripts/main.js"></script>
+    <script>
+        // Garante que a música só toca após interação do usuário
+        document.getElementById('play-music-btn').addEventListener('click', function() {
+            var audio = document.getElementById('background-music');
+            audio.play();
+            document.getElementById('overlay-botao').style.display = 'none';
+            document.getElementById('conteudo-site').style.display = 'block';
+        });
+    </script>
 </body>
 </html>
