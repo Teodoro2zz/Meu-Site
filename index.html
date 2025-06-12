@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Meu Amor 💗</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #fff0f6;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            text-align: center;
+            margin-top: 32px;
+        }
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-start;
+            max-width: 1200px;
+            margin: 0 auto;
+            min-height: 60vh;
+        }
+        .mensagem {
+            flex: 1;
+            margin: 32px 0 0 40px;
+            font-size: 1.2em;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .mensagem h2 {
+            text-align: left;
+        }
+        .carrossel-lateral {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            margin: 32px 40px 0 0;
+        }
+        .carrossel-img {
+            max-width: 350px;
+            max-height: 400px;
+            border-radius: 16px;
+            box-shadow: 0 2px 8px #0002;
+            margin-bottom: 12px;
+        }
+        #overlay-botao {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: #fff0f6ee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            z-index: 10;
+        }
+        #play-music-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            outline: none;
+        }
+        #play-music-btn img {
+            width: 120px;
+            height: 120px;
+        }
+        #play-music-btn span {
+            display: block;
+            margin-top: 10px;
+            font-size: 1.1em;
+            color: #d72660;
+        }
+        /* Corações e data animados */
+        .animacao-namoro {
+            position: fixed;
+            left: 50%;
+            top: 60%;
+            transform: translate(-50%, 0);
+            z-index: 20;
+            pointer-events: none;
+            animation: subir 2.5s ease-out forwards;
+            font-size: 2em;
+            text-align: center;
+        }
+        @keyframes subir {
+            0% { opacity: 1; transform: translate(-50%, 0) scale(1);}
+            80% { opacity: 1; }
+            100% { opacity: 0; transform: translate(-50%, -200px) scale(1.5);}
+        }
+        .animacao-namoro .coracoes {
+            font-size: 2em;
+            animation: coracao-pulso 1s infinite alternate;
+        }
+        @keyframes coracao-pulso {
+            0% { transform: scale(1);}
+            100% { transform: scale(1.2);}
+        }
+        .animacao-namoro .data {
+            display: block;
+            font-size: 1.1em;
+            color: #d72660;
+            margin-top: 8px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+        @media (max-width: 900px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .carrossel-lateral, .mensagem {
+                margin: 24px 0 0 0;
+                align-items: center;
+            }
+            .carrossel-lateral {
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="overlay-botao">
+        <button id="play-music-btn">
+            <img src="assets/fotos/botao.png" alt="Clique aqui Amor💗">
+            <span>Clique aqui Amor💗</span>
+        </button>
+    </div>
+    <audio id="background-music" src="assets/music/vemca.mp3" loop></audio>
+    <div id="conteudo-site" style="display:none;">
+        <header>
+            <h1>Para Meu Amor 💗</h1>
+        </header>
+        <div class="container">
+            <div class="mensagem">
+                <h2>Mensagem</h2>
+                <p>Oi meu amor! Esse site é só pra você, com todo meu carinho. Te amo! 💖</p>
+            </div>
+            <div class="carrossel-lateral">
+                <h2 style="text-align:right;">Nossos Momentos</h2>
+                <img id="carrossel-img" class="carrossel-img" src="assets/fotos/amor.png" alt="Foto especial">
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('play-music-btn').addEventListener('click', function() {
+    var audio = document.getElementById('background-music');
+    audio.play();
+    document.getElementById('overlay-botao').style.display = 'none';
+    document.getElementById('conteudo-site').style.display = 'block';
+
+    // Cria animação dos corações e data
+    const animacao = document.createElement('div');
+    animacao.className = 'animacao-namoro';
+    animacao.innerHTML = `
+        <span class="coracoes">💗💗💗</span>
+        <span class="data">Desde: 04/09/2024</span>
+    `;
+    document.body.appendChild(animacao);
+    setTimeout(() => {
+        animacao.remove();
+    }, 2500);
+});
+        
+
+        // Carrossel automático
+        const fotos = [
+            "assets/fotos/amor.png",
+            "assets/fotos/vida.png",
+            "assets/fotos/meubem.png",
+            "assets/fotos/nenem.png"
+        ];
+        let indice = 0;
+        const img = document.getElementById('carrossel-img');
+        setInterval(() => {
+            indice = (indice + 1) % fotos.length;
+            img.src = fotos[indice];
+        }, 2500); // Troca a cada 2,5 segundos
+    </script>
+</body>
+</html>
