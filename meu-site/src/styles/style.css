@@ -223,3 +223,24 @@ body::before {
     margin-top: 10px;
     animation: fadeIn 2s;
 }
+/* Corações animados no overlay */
+.coracao-overlay {
+    position: absolute;
+    top: 100vh;
+    font-size: 2.5rem;
+    opacity: 0.18;
+    animation: flutuar 6s linear infinite;
+    pointer-events: none;
+}
+@keyframes flutuar {
+    0% { top: 100vh; }
+    100% { top: -10vh; }
+}
+
+.frase-inicial {
+    font-family: 'Pacifico', cursive, Arial, sans-serif;
+    color: #e60073;
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    text-align: center;
+}
