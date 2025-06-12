@@ -292,3 +292,90 @@ footer {
     z-index: 20001;
     text-shadow: 0 2px 8px #e60073;
 }
+
+#envelope-section {
+    text-align: center;
+}
+
+#bilhetes {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.bilhete {
+    background: #fff0f6;
+    color: #e60073;
+    border-radius: 12px;
+    padding: 10px 24px;
+    font-family: 'Pacifico', cursive, Arial, sans-serif;
+    font-size: 1.1rem;
+    box-shadow: 0 2px 8px #e6007333;
+    animation: fadeInUp 0.8s;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+
+#abrir-envelope-btn {
+    margin: 18px 0 24px 0;
+    background: #e60073;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 32px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    font-family: 'Pacifico', cursive, Arial, sans-serif;
+    transition: background 0.2s;
+    box-shadow: 0 2px 8px #e6007333;
+}
+#abrir-envelope-btn:hover {
+    background: #ad0057;
+}
+
+#envelope {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 16px;
+    animation: abrirEnvelope 1s;
+}
+
+.envelope-top {
+    width: 220px;
+    height: 60px;
+    background: linear-gradient(135deg, #fff0f6 60%, #e60073 100%);
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    margin-bottom: -10px;
+    z-index: 2;
+}
+
+.envelope-body {
+    width: 220px;
+    min-height: 180px;
+    background: #fff;
+    border-radius: 0 0 16px 16px;
+    box-shadow: 0 2px 16px #e6007340;
+    padding: 24px 18px;
+    z-index: 1;
+    position: relative;
+}
+
+.mensagem-principal {
+    color: #e60073;
+    font-size: 1.05rem;
+    font-family: Arial, sans-serif;
+    text-align: left;
+    animation: fadeIn 1.2s;
+}
+
+@keyframes abrirEnvelope {
+    from { transform: scaleY(0.2) scaleX(0.8); opacity: 0; }
+    to { transform: scaleY(1) scaleX(1); opacity: 1; }
+}

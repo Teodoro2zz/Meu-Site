@@ -60,3 +60,10 @@ document.getElementById('fechar-lightbox').onclick = function() {
 document.getElementById('lightbox').onclick = function(e) {
     if (e.target === this) this.style.display = 'none';
 };
+
+// Envelope animado
+document.getElementById('abrir-envelope-btn').addEventListener('click', function() {
+    document.getElementById('bilhetes').style.display = 'none';
+    this.style.display = 'none';
+    document.getElementById('envelope').style.display = 'flex';
+});
