@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Para Meu Amor 💗</title>
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="style.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -82,11 +82,11 @@
 <body>
     <div id="overlay-botao">
         <button id="play-music-btn">
-            <img src="assets/fotos/botao.png" alt="Clique aqui Amor💗">
+            <img src="../assets/fotos/botao.png" alt="Clique aqui Amor💗">
             <span>Clique aqui Amor💗</span>
         </button>
     </div>
-    <audio id="background-music" src="assets/music/vemca.mp3" loop></audio>
+    <audio id="background-music" src="../assets/music/vemca.mp3" loop></audio>
     <div id="conteudo-site" style="display:none;">
         <header>
             <h1>Para Meu Amor 💗</h1>
@@ -95,7 +95,7 @@
             <section>
                 <h2 style="text-align:center;">Nossos Momentos</h2>
                 <div class="carrossel">
-                    <img id="carrossel-img" class="carrossel-img" src="assets/fotos/foto1.png" alt="Foto especial">
+                    <img id="carrossel-img" class="carrossel-img" src="../assets/fotos/foto1.png" alt="Foto especial">
                     <div class="carrossel-botoes">
                         <button id="anterior" title="Anterior">&lt;</button>
                         <button id="proximo" title="Próxima">&gt;</button>
@@ -121,10 +121,10 @@
 
         // Carrossel de fotos
         const fotos = [
-            "assets/fotos/foto1.png",
-            "assets/fotos/foto2.png",
-            "assets/fotos/foto3.png",
-            "assets/fotos/foto4.png"
+            "../assets/fotos/foto1.png",
+            "../assets/fotos/foto2.png",
+            "../assets/fotos/foto3.png",
+            "../assets/fotos/foto4.png"
         ];
         let indice = 0;
         const img = document.getElementById('carrossel-img');
