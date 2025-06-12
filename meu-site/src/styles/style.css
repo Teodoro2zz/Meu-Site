@@ -244,3 +244,50 @@ body::before {
     margin-bottom: 30px;
     text-align: center;
 }
+.suspense-box {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 2px 16px #e6007340;
+    padding: 32px 28px;
+    text-align: center;
+    font-family: 'Pacifico', cursive, Arial, sans-serif;
+    color: #e60073;
+    font-size: 1.4rem;
+    animation: fadeIn 1s;
+    min-width: 280px;
+}
+
+.botoes-suspense {
+    margin-top: 22px;
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+}
+
+#confirmar-btn, #nao-btn {
+    background: #e60073;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 28px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    font-family: 'Pacifico', cursive, Arial, sans-serif;
+    transition: background 0.2s, transform 0.2s;
+    position: relative;
+}
+
+#confirmar-btn:hover {
+    background: #ad0057;
+}
+
+#nao-btn {
+    background: #fff0f6;
+    color: #e60073;
+    border: 2px solid #e60073;
+}
+
+#nao-btn:hover {
+    background: #e60073;
+    color: #fff;
+}

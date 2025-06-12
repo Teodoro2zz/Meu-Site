@@ -12,6 +12,28 @@ document.getElementById('confirmar-btn').addEventListener('click', function() {
     document.getElementById('conteudo-site').style.display = 'block';
     // Aqui você pode adicionar corações ou outros efeitos se quiser
 });
+
+// Botão "Não" foge do mouse
+const naoBtn = document.getElementById('nao-btn');
+const botoesSuspense = document.querySelector('.botoes-suspense');
+
+naoBtn.addEventListener('mouseenter', function() {
+    const box = botoesSuspense.getBoundingClientRect();
+    const btn = naoBtn.getBoundingClientRect();
+    let newLeft = Math.random() * (box.width - btn.width);
+    let newTop = Math.random() * 30; // Pequeno deslocamento vertical
+
+    naoBtn.style.position = 'relative';
+    naoBtn.style.left = newLeft + 'px';
+    naoBtn.style.top = newTop + 'px';
+});
+
+// Volta ao lugar quando o mouse sai da área dos botões
+botoesSuspense.addEventListener('mouseleave', function() {
+    naoBtn.style.left = '0px';
+    naoBtn.style.top = '0px';
+});
+
     // Efeito de corações subindo
     for (let i = 0; i < 20; i++) {
         setTimeout(() => {
