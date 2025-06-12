@@ -321,23 +321,6 @@ footer {
     to { opacity: 1; transform: translateY(0);}
 }
 
-#abrir-envelope-btn {
-    margin: 18px 0 24px 0;
-    background: #e60073;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    padding: 12px 32px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    font-family: 'Pacifico', cursive, Arial, sans-serif;
-    transition: background 0.2s;
-    box-shadow: 0 2px 8px #e6007333;
-}
-#abrir-envelope-btn:hover {
-    background: #ad0057;
-}
-
 #envelopes-bilhetes, #envelope-final {
     display: flex;
     flex-direction: column;
@@ -425,4 +408,9 @@ footer {
     font-family: Arial, sans-serif;
     text-align: left;
     animation: fadeIn 1.2s;
+}
+
+@keyframes abrirEnvelope {
+    from { transform: scaleY(0.2) scaleX(0.8); opacity: 0; }
+    to { transform: scaleY(1) scaleX(1); opacity: 1; }
 }

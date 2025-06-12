@@ -61,40 +61,33 @@ document.getElementById('lightbox').onclick = function(e) {
     if (e.target === this) this.style.display = 'none';
 };
 
-// Envelope animado
-document.getElementById('abrir-envelope-btn').addEventListener('click', function() {
-    document.getElementById('bilhetes').style.display = 'none';
-    this.style.display = 'none';
-    document.getElementById('envelope').style.display = 'flex';
-});
+document.addEventListener('DOMContentLoaded', function() {
+    const envelopes = document.querySelectorAll('.envelope-bilhete');
+    const abrirBtns = document.querySelectorAll('.abrir-proximo-btn');
+    const fecharBtns = document.querySelectorAll('.fechar-envelope-btn');
+    const envelopeFinal = document.getElementById('envelope-final');
+    const fecharFinalBtn = document.getElementById('fechar-envelope-final-btn');
 
-// Controle dos envelopes de bilhetes e envelope final
-const envelopes = document.querySelectorAll('.envelope-bilhete');
-const abrirBtns = document.querySelectorAll('.abrir-proximo-btn');
-const fecharBtns = document.querySelectorAll('.fechar-envelope-btn');
-const envelopeFinal = document.getElementById('envelope-final');
-const fecharFinalBtn = document.getElementById('fechar-envelope-final-btn');
-
-abrirBtns.forEach((btn, idx) => {
-    btn.addEventListener('click', () => {
-        envelopes[idx].style.display = 'none';
-        if (envelopes[idx + 1]) {
-            envelopes[idx + 1].style.display = 'flex';
-        } else {
-            envelopeFinal.style.display = 'flex';
-        }
+    abrirBtns.forEach((btn, idx) => {
+        btn.addEventListener('click', () => {
+            envelopes[idx].style.display = 'none';
+            if (envelopes[idx + 1]) {
+                envelopes[idx + 1].style.display = 'flex';
+            } else {
+                envelopeFinal.style.display = 'flex';
+            }
+        });
     });
-});
 
-fecharBtns.forEach((btn, idx) => {
-    btn.addEventListener('click', () => {
-        envelopes[idx].style.display = 'none';
-        // Se quiser reabrir, pode adicionar um botão externo para mostrar o primeiro envelope novamente
+    fecharBtns.forEach((btn, idx) => {
+        btn.addEventListener('click', () => {
+            envelopes[idx].style.display = 'none';
+        });
     });
-});
 
-if (fecharFinalBtn) {
-    fecharFinalBtn.addEventListener('click', () => {
-        envelopeFinal.style.display = 'none';
-    });
-}
+    if (fecharFinalBtn) {
+        fecharFinalBtn.addEventListener('click', () => {
+            envelopeFinal.style.display = 'none';
+        });
+    }
+});
