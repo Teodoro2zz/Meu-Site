@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const quizFeedback = document.getElementById('quiz-feedback');
     const dicaBtn = document.getElementById('dica-quiz-btn');
     const dicaTexto = document.getElementById('dica-quiz-texto');
-    let dicaTimer;
+    let dicaInterval;
 
     // Controle dos envelopes
     abrirBtns.forEach((btn, idx) => {
@@ -83,13 +83,22 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 // Mostra o quiz
                 quizDiv.style.display = 'flex';
-                // Esconde dica e botão, inicia timer
-                dicaBtn.style.display = 'none';
+                // Esconde texto da dica, reseta botão e inicia timer
+                dicaBtn.disabled = true;
+                dicaBtn.textContent = "Quero uma dica! (60s)";
+                dicaBtn.style.display = 'inline-block';
                 dicaTexto.style.display = 'none';
-                if (dicaTimer) clearTimeout(dicaTimer);
-                dicaTimer = setTimeout(() => {
-                    dicaBtn.style.display = 'inline-block';
-                }, 60000); // 60 segundos
+                let segundos = 60;
+                if (dicaInterval) clearInterval(dicaInterval);
+                dicaInterval = setInterval(() => {
+                    segundos--;
+                    dicaBtn.textContent = `Quero uma dica! (${segundos}s)`;
+                    if (segundos <= 0) {
+                        clearInterval(dicaInterval);
+                        dicaBtn.disabled = false;
+                        dicaBtn.textContent = "Quero uma dica! 💡";
+                    }
+                }, 1000);
             }
         });
     });
@@ -122,6 +131,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Botão de dica
     if (dicaBtn) {
         dicaBtn.onclick = function() {
+            if (dicaBtn.disabled) return;
             dicaTexto.textContent = "Dica: O mês é janeiro e o dia é 24 😉";
             dicaTexto.style.display = 'block';
             dicaBtn.style.display = 'none';
